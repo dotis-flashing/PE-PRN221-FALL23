@@ -1,0 +1,43 @@
+﻿@page
+@model PhamDangXuanDuySE161418PRN221PE.Pages.Admin.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MemberAccount</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MemberAccount.Password)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MemberAccount.Password)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MemberAccount.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MemberAccount.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MemberAccount.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MemberAccount.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MemberAccount.Role)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MemberAccount.Role)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.MemberAccount?.MemberId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

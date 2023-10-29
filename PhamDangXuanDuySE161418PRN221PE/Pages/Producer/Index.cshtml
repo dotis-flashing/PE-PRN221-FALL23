@@ -1,0 +1,55 @@
+﻿@page
+@model PhamDangXuanDuySE161418PRN221PE.Pages.Producer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    var role = HttpContext.Session.GetInt32("role");
+
+}
+@if (role == 3)
+{
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Producer[0].ProducerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producer[0].ProducerDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producer[0].Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Producer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProducerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProducerDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ProducerId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProducerId">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <p class="alert alert-danger" role="alert">@ViewData["Message"]</p>
+    }
+</table>
+}
